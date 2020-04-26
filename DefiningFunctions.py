@@ -8,7 +8,7 @@ def square_root(n):
     return m.sqrt(n)
 
 
-# now lets try our approximation using Newtons method
+# now lets try our approximation using Newtons methods
 
 def newton_root(n, iteration):
     root = n / 2  # initial guess
