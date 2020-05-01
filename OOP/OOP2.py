@@ -1,6 +1,7 @@
-# Class Variables are shared amoungst all instances such as annual raise
+# Class Variables are shared amongst all instances such as annual raise
 
 class Employee:
+    num_of_employess = 0
     raise_amount = 1.04
 
     def __init__(self, first, last, pay):
@@ -8,6 +9,8 @@ class Employee:
         self.last = last
         self.pay = pay
         self.email = self.first + '.' + self.last + '@company.com'
+
+        Employee.num_of_employess += 1  # we dont need self as its a constant class value
 
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
@@ -36,3 +39,6 @@ emp2 = Employee('Dan', 'Baker', 50000)
 print(emp2.__dict__)
 emp2.apply_raise()
 print(emp2.pay)
+
+
+print(Employee.num_of_employess)
