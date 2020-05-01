@@ -24,14 +24,15 @@ class Fraction:
         common = gcd(newnum, newden)
         return Fraction(newnum // common, newden // common)
 
-    def __eq__(self, other):  # We have to overide 1==f2 will only be True if they are references to the same object.
+    def __eq__(self,
+               other):  # We have to override as f1==f2 will only be True if they are references to the same object.
         # Two different objects with the same numerators and denominators would not be equal under this implementation
         firstnum = self.num * other.den
         secondnum = other.num * self.den
         return firstnum == secondnum
 
 
-f1 = Fraction(1, 4)
+f1 = Fraction(2, 4)
 f2 = Fraction(1, 2)
 f3 = f1 + f2
 print(f3)
