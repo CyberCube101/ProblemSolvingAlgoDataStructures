@@ -17,7 +17,7 @@ def is_anagram(str_1, str_2):
     # we will loop each string and update the hash table value
 
     for i in range(len(str_1)):
-        dict_1[str_1[i]] += 1  # we are passing the string character to the key and incrementing the value
+        dict_1[str_1[i]] += 1  # we are passing the string character to the key and incrementing the value.
         dict_2[str_2[i]] += 1
 
     return dict_1 == dict_2
