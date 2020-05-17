@@ -1,4 +1,4 @@
-# Special Methods (Dunder)
+# Special Methods (dunder)
 
 class Employee:
     raise_amount = 1.04
