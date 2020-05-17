@@ -10,6 +10,8 @@ Each class should be comparable so it can be sorted and meaningfully compared wi
 You should think about access control each instance variable. Which attributes do you want to make public, which attributes do you want to make read only,
 and which attributes do you want to control or do value checking on before you allow them to be changed.
 
+It's worth noting that if _eq_ is not implemented, then it behaves as "is":
+
 '''
 
 # Create a die class that allows the user to specify number of sides
@@ -28,19 +30,30 @@ class MSDie:
 
     def __str__(self):
         return str(self.current_value)
+
     def __repr__(self):
-        return "MSDie({}) : {}".format(self.num_sides,self.current_value)
+        return "MSDie({}) : {}".format(self.num_sides, self.current_value)
+
+    def __eq__(self, other):
+        if isinstance(other, MSDie):
+            if other.current_value == self.current_value:
+                return True
+        return False
 
 
-my_die = MSDie(6)
-for i in range(5):
-    print(my_die.current_value)
-    my_die.roll()
+
+# my_die = MSDie(6)
+# for i in range(5):
+#     print(my_die.current_value)
+#     my_die.roll()
 
 d_list = [MSDie(6), MSDie(20)]
 print(d_list)
 
-
 # now we need to fix the repr and str to show the current value
-#Having a good repr makes it easier to debug with simple print statements.
+# Having a good repr makes it easier to debug with simple print statements.
 
+die1 = MSDie(6)
+die2 = MSDie(6)
+print(die1.current_value, die2.current_value)
+print(die1 == die2)
